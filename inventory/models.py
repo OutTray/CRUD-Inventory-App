@@ -8,5 +8,3 @@ class Inventory_db(models.Model):
     item_quantity = models.IntegerField(default = 0)
 
 
-# https://medium.com/swlh/django-rest-framework-creating-a-simple-api-in-15mins-with-drf-5e051ee531dd
-# https://medium.com/swlh/django-rest-framework-crud-with-drf-9a8756095c73
