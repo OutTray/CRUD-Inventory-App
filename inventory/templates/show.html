@@ -1,12 +1,10 @@
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
-    <meta charset="UTF-8">  
-    <title>Employee Records</title>  
+    <title>Inventory</title>  
 </head>  
 <body>  
-<table class="table table-striped table-bordered table-sm">  
-    <thead class="thead-dark">  
+<table>  
     <tr>  
         <th>Item Name</th>  
         <th>Item Quantity</th>  
@@ -18,7 +16,8 @@
         <td>{{ item.item_name }}</td>  
         <td>{{ item.item_quantity }}</td>  
         <td>  
-            <a href="/inventory/edit/{{ item.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/inventory/read/{{ item.id }}">Read</a> 
+            <a href="/inventory/update/{{ item.id }}">Update</a>  
             <a href="/inventory/delete/{{ item.id }}">Delete</a>  
         </td>  
     </tr>  
@@ -27,6 +26,9 @@
 </table>  
 <br>  
 <br>  
-<center><a href="/inventory/create" class="btn btn-primary">Add New Record</a></center>  
+<a href="/inventory/create" class="btn btn-primary">Create New Item</a>
+<br>
+<br>
+To download these entries as a csv file, click <a href= "/inventory/all_inventory_csv">Here</a>
 </body>  
 </html>  

@@ -7,9 +7,12 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("create", views.create),
     path("show", views.show),
-    path("edit/<int:id>", views.edit),
     path("update/<int:id>", views.update),
     path("delete/<int:id>", views.delete),
+    path("read/<int:id>", views.read),
+
+    path("all_inventory_csv", views.csv_all, name = "all_inventory_csv"),
+    path("item_csv/<int:id>", views.csv_single, name = "item_csv"),
 
     path('api', InventoryApi.as_view()),
     path('api/create', InventoryCreateApi.as_view()),

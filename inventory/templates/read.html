@@ -1,0 +1,30 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <title>Read</title>  
+</head>  
+<body>  
+    <h3>Read Details</h3>  
+  <table>  
+    <tr>  
+        <th>Item Name</th>  
+        <th>Item Quantity</th>  
+    </tr>  
+    <tbody>  
+    <tr>  
+        <td>{{ inventory_selection.item_name }}</td>  
+        <td>{{ inventory_selection.item_quantity }}</td>  
+        <td>  
+            <a href="/inventory/edit/{{ inventory_selection.id }}">Update</a>  
+            <a href="/inventory/delete/{{ inventory_selection.id }}">Delete</a>  
+        </td>  
+    </tr>  
+    </tbody>  
+</table> 
+ 
+    <a href="/inventory/show">Return To All Item View</a>
+
+    <br>
+    To download this entry as a csv file, click <a href= "/inventory/item_csv/{{ inventory_selection.id }}">Here</a>
+</body>  
+</html>  
