@@ -1,36 +1,37 @@
 <!DOCTYPE html>  
-<html lang="en">  
+
+<html lang="en"> 
+
 <head>  
+
     <title>Create</title>  
+
 </head>  
+
 <body>  
-<form method="POST" class="post-form" action="create">  
-        {% csrf_token %}  
-    <div class="container">  
-<div class="form-group row">  
-  <label class="col-sm-1 col-form-label"></label>  
-  <div class="col-sm-4">  
-  <h3>Create New Item</h3>  
-  </div>  
-</div>  
-  <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Item Name:</label>  
-    <div class="col-sm-4">  
+
+  <form method="POST" action="create">  
+
+    {% csrf_token %}  
+
+    <h3>Create New Item</h3>  
+
+      Item Name:
+
       {{ form.item_name }}  
-    </div>  
-  </div>  
-    <div class="form-group row">  
-    <label class="col-sm-2 col-form-label">Item Quantity:</label>  
-    <div class="col-sm-4">  
+
+      <br>
+
+      Item Quantity: 
+
       {{ form.item_quantity }}  
-    </div>  
-        <div class="form-group row">  
-    <label class="col-sm-1 col-form-label"></label>  
-    <div class="col-sm-4">  
-    <button type="submit" class="btn btn-primary">Submit</button>  
-    </div>  
-  </div>  
-    </div>  
-</form>  
-</body>  
-</html>  
+
+      <br>
+
+      <button type="submit">Submit</button>  
+
+  </form>  
+
+</body>
+
+</html> 

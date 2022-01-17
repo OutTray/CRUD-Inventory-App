@@ -1,30 +1,52 @@
 <!DOCTYPE html>  
+
 <html lang="en">  
+
 <head>  
+
     <title>Read</title>  
+
+    <style>
+
+        table, th, td {
+            border:1px solid black;
+        }
+
+    </style>
+
 </head>  
+
 <body>  
+
     <h3>Read Details</h3>  
-  <table>  
-    <tr>  
-        <th>Item Name</th>  
-        <th>Item Quantity</th>  
-    </tr>  
-    <tbody>  
-    <tr>  
-        <td>{{ inventory_selection.item_name }}</td>  
-        <td>{{ inventory_selection.item_quantity }}</td>  
-        <td>  
-            <a href="/inventory/edit/{{ inventory_selection.id }}">Update</a>  
-            <a href="/inventory/delete/{{ inventory_selection.id }}">Delete</a>  
-        </td>  
-    </tr>  
-    </tbody>  
-</table> 
+
+    <table>  
+
+        <tr>  
+            <th>Item Name</th>  
+            <th>Item Quantity</th>
+            <th>Actions</th>  
+        </tr>  
+
+        <tr>  
+            <td>{{ inventory_selection.item_name }}</td>  
+            <td>{{ inventory_selection.item_quantity }}</td>  
+            <td>  
+                <a href="/inventory/update/{{ inventory_selection.id }}">Update</a>  
+                <a href="/inventory/delete/{{ inventory_selection.id }}">Delete</a>  
+            </td>  
+        </tr>  
+ 
+    </table> 
+
+    <br>
  
     <a href="/inventory/show">Return To All Item View</a>
 
-    <br>
+    <br> <br>
+
     To download this entry as a csv file, click <a href= "/inventory/item_csv/{{ inventory_selection.id }}">Here</a>
+
 </body>  
+
 </html>  

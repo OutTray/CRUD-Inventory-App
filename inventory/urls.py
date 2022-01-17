@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.urls import path
 from inventory import views
-from .api import InventoryCreateApi, InventoryApi, InventoryUpdateApi, InventoryDeleteApi
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -13,9 +12,4 @@ urlpatterns = [
 
     path("all_inventory_csv", views.csv_all, name = "all_inventory_csv"),
     path("item_csv/<int:id>", views.csv_single, name = "item_csv"),
-
-    path('api', InventoryApi.as_view()),
-    path('api/create', InventoryCreateApi.as_view()),
-    path('api/<int:pk>', InventoryUpdateApi.as_view()),
-    path('api/<int:pk>/delete', InventoryDeleteApi.as_view()),
 ]

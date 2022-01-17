@@ -1,34 +1,54 @@
 <!DOCTYPE html>  
+
 <html lang="en">  
+
 <head>  
+
     <title>Inventory</title>  
+
+    <style>
+
+        table, th, td {
+            border:1px solid black;
+        }
+
+    </style>
+
 </head>  
+
 <body>  
-<table>  
-    <tr>  
-        <th>Item Name</th>  
-        <th>Item Quantity</th>  
-    </tr>  
-    </thead>  
-    <tbody>  
-{% for item in inventory_selection %}  
-    <tr>  
-        <td>{{ item.item_name }}</td>  
-        <td>{{ item.item_quantity }}</td>  
-        <td>  
-            <a href="/inventory/read/{{ item.id }}">Read</a> 
-            <a href="/inventory/update/{{ item.id }}">Update</a>  
-            <a href="/inventory/delete/{{ item.id }}">Delete</a>  
-        </td>  
-    </tr>  
-{% endfor %}  
-    </tbody>  
-</table>  
-<br>  
-<br>  
-<a href="/inventory/create" class="btn btn-primary">Create New Item</a>
-<br>
-<br>
-To download these entries as a csv file, click <a href= "/inventory/all_inventory_csv">Here</a>
+
+    <h3> Inventory </h3>
+
+    <table>  
+        <tr>  
+            <th>Item Name</th>  
+            <th>Item Quantity</th>  
+            <th>Actions</ht>
+        </tr>   
+    {% for item in inventory_selection %}  
+        <tr>  
+            <td>{{ item.item_name }}</td>  
+            <td>{{ item.item_quantity }}</td>  
+            <td>  
+                <a href="/inventory/read/{{ item.id }}">Read</a> 
+                <a href="/inventory/update/{{ item.id }}">Update</a>  
+                <a href="/inventory/delete/{{ item.id }}">Delete</a>  
+            </td>  
+        </tr>  
+    {% endfor %}  
+    </table>  
+
+    <br>  
+    <br>  
+
+    <a href="/inventory/create" class="btn btn-primary">Create New Item</a>
+
+    <br>
+    <br>
+
+    To download these entries as a csv file, click <a href= "/inventory/all_inventory_csv">Here</a>
+    
 </body>  
+
 </html>  
