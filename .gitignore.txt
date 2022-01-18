@@ -1,0 +1,7 @@
+# Ignore SQL files
+
+*.sqlite3
+
+# Ignore config.py which contains SQL server passwords
+
+config.py
