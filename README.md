@@ -1,6 +1,6 @@
 # Inventory Tracking Web Application
 
-Created by Eric Shum for the Summer 2022 Shopify Backend Developer Intern Challenge
+Created for the Summer 2022 Shopify Backend Developer Intern Challenge
 
 ## Languages and Frameworks Used:
 
