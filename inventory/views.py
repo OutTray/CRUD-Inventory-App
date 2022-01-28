@@ -93,3 +93,46 @@ def csv_single(request, id):
     writer.writerow(row_values)
 
     return response
+
+
+# API Implementatin
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import Inventory_db_Serializer
+from .models import Inventory_db
+from django.shortcuts import get_object_or_404
+
+class InventoryViews(APIView):
+    def post(self, request):
+        serializer = Inventory_db_Serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+        else:
+            return Response({"status": "error", "data": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, id=None):
+        if id:
+            item = Inventory_db.objects.get(id=id)
+            serializer = Inventory_db_Serializer(item)
+            return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+        items = Inventory_db.objects.all()
+        serializer = Inventory_db_Serializer(items, many=True)
+        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+
+    def patch(self, request, id=None):
+        item = Inventory_db.objects.get(id=id)
+        serializer = Inventory_db_Serializer(item, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"status": "success", "data": serializer.data})
+        else:
+            return Response({"status": "error", "data": serializer.errors})
+
+    def delete(self, request, id=None):
+        item = get_object_or_404(Inventory_db, id=id)
+        item.delete()
+        return Response({"status": "success", "data": "Item Deleted"})

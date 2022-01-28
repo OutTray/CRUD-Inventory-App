@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path
 from inventory import views
 
+from .views import InventoryViews
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("create", views.create),
@@ -12,4 +14,7 @@ urlpatterns = [
 
     path("all_inventory_csv", views.csv_all, name = "all_inventory_csv"),
     path("item_csv/<int:id>", views.csv_single, name = "item_csv"),
+
+    path('api/', InventoryViews.as_view()),
+    path('api/<int:id>', InventoryViews.as_view()),
 ]
